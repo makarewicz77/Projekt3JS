@@ -4,6 +4,11 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "id": 2,
+      "title": "json-server2",
+      "author": "typicode2"
     }
   ],
   "comments": [
@@ -13,7 +18,18 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "profile": [
+  {
+    "id": 1,
+    "name": "Maciek",
+    "surname": "Parfieńczyk",
+    "pesel":"12345678910"
+  },
+  {
+    "id": 2,
+    "name": "Maciek2",
+    "surname": "Parfieńczyk2",
+    "pesel":"12345678911"
   }
+]
 }
