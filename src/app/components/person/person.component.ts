@@ -40,7 +40,7 @@ export class PersonComponent{
   openDialog(action,obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '250px',
+      width: '320px',
       data:obj
     })
     

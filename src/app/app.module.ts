@@ -11,6 +11,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { PersonComponent } from './components/person/person.component';
 import { BookComponent } from './components/book/book.component';
 import { AuthorComponent } from './components/author/author.component';
+import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-box-book.component';
 // Some imports for menu modules
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AuthorComponent } from './components/author/author.component';
     DialogBoxComponent,
     PersonComponent,
     BookComponent,
-    AuthorComponent
+    AuthorComponent,
+    DialogBoxBookComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { AuthorComponent } from './components/author/author.component';
   ],
   entryComponents :
   [
-    DialogBoxComponent
+    DialogBoxComponent,
+    DialogBoxBookComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
