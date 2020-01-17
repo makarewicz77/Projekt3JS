@@ -23,19 +23,19 @@
       "id": 1,
       "name": "Maciek",
       "surname": "Parfieńczyk",
-      "pesel": "12345678910"
+      "pesel": "98092905774"
     },
     {
       "id": 2,
       "name": "Maciek2",
       "surname": "Parfieńczyk2",
-      "pesel": "12345678911"
+      "pesel": "98092905774"
     },
     {
       "id": 3,
       "name": "Maciek2",
       "surname": "Parfieńczyk2",
-      "pesel": "12345678911"
+      "pesel": "98092905774"
     },
     {
       "id": 6,
@@ -47,7 +47,7 @@
       "id": 7,
       "name": "Kacper",
       "surname": "Makar",
-      "pesel": "12312341124"
+      "pesel": "98122206758"
     },
     {
       "name": "zs",
@@ -62,21 +62,10 @@
       "id": 9
     },
     {
-      "name": "zx",
-      "surname": "f",
-      "id": 10
-    },
-    {
       "name": "v",
       "surname": "c",
       "pesel": "12",
       "id": 11
-    },
-    {
-      "name": "z",
-      "surname": "c",
-      "pesel": "f",
-      "id": 12
     },
     {
       "name": "g",
