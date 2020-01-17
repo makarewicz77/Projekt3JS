@@ -8,12 +8,18 @@ import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialog
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { PersonComponent } from './components/person/person.component';
+import { BookComponent } from './components/book/book.component';
+import { AuthorComponent } from './components/author/author.component';
 // Some imports for menu modules
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    PersonComponent,
+    BookComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
