@@ -8,13 +8,16 @@ import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialog
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { TableClientComponent } from './table-client';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { Routes, RouterModule } from '@angular/router';
 // Some imports for menu modules
 
 @NgModule({
   declarations: [
     AppComponent,
-    DialogBoxComponent
+    DialogBoxComponent,
+    TableClientComponent
   ],
   imports: [
     BrowserModule,
