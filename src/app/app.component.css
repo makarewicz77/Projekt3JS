@@ -75,3 +75,27 @@ span {
   background-color: #7c43bd;
   border-radius: 10px;
 }
+a.action:hover
+{
+    white-space: pre-line;
+    text-shadow:  0 0 1px #000; 
+}
+.mat-column-id {
+    width:10% !important;
+
+  }
+  .mat-column-name {
+    width: 20% !important;
+
+  }
+  .mat-column-surname{
+    width: 25% !important;
+
+  }
+  .mat-column-pesel {
+    width: 28% !important;
+
+  }
+  .mat-column-action {
+    width: 30% !important;
+  }

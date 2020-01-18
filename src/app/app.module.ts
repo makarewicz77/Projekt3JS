@@ -11,6 +11,10 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 import { TableClientComponent } from './table-client';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Routes, RouterModule } from '@angular/router';
+import { PersonComponent } from './components/person/person.component';
+import { BookComponent } from './components/book/book.component';
+import { AuthorComponent } from './components/author/author.component';
+import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-box-book.component';
 // Some imports for menu modules
 
 @NgModule({
@@ -18,6 +22,10 @@ import { Routes, RouterModule } from '@angular/router';
     AppComponent,
     DialogBoxComponent,
     TableClientComponent
+    PersonComponent,
+    BookComponent,
+    AuthorComponent,
+    DialogBoxBookComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,8 @@ import { Routes, RouterModule } from '@angular/router';
   ],
   entryComponents :
   [
-    DialogBoxComponent
+    DialogBoxComponent,
+    DialogBoxBookComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

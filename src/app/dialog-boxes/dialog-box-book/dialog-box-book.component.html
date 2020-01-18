@@ -1,16 +1,16 @@
-<h1 mat-dialog-title> <strong>{{action}}</strong> client</h1>
+<h1 mat-dialog-title><strong>{{action}}</strong> book</h1>
 <div mat-dialog-content>
   <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
+    <input placeholder="{{action}} Title" matInput [(ngModel)]="local_data.title">
   </mat-form-field>
   <mat-form-field *ngIf="action != 'Delete'">
-    <input placeholder="{{action}} Surname" matInput [(ngModel)]="local_data.surname">
+    <input placeholder="{{action}} Author" matInput [(ngModel)]="local_data.author">
   </mat-form-field>
   <mat-form-field *ngIf="action != 'Delete'">
-    <input placeholder="{{action}} Pesel" matInput [(ngModel)]="local_data.pesel">
+    <input placeholder="{{action}} Pages" matInput [(ngModel)]="local_data.pages">
   </mat-form-field>
   <ng-template #elseTemplate>
-    Sure to delete <b>{{local_data.name}} {{local_data.surname}}</b>?
+    Sure to delete book <b>{{local_data.title}}</b>?
   </ng-template>
 </div>
 <div mat-dialog-actions>

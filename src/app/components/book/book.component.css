@@ -1,0 +1,48 @@
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 280px;
+    height: 40px;
+    flex-shrink: 0;
+    line-height: 40px;
+    border-radius: 10%;
+}
+.button
+{
+    width :280px;
+    text-align: center;
+}
+th
+{
+    margin-right: 100px;
+}
+a.action
+{
+    color:red;
+    cursor: pointer;
+}
+a.action:hover
+{
+    white-space: pre-line;
+    text-shadow:  0 0 1px #000; 
+}
+.mat-column-id {
+    width:10% !important;
+
+  }
+  .mat-column-name {
+    width: 20% !important;
+
+  }
+  .mat-column-surname{
+    width: 25% !important;
+
+  }
+  .mat-column-pesel {
+    width: 28% !important;
+
+  }
+  .mat-column-action {
+    width: 30% !important;
+  }
