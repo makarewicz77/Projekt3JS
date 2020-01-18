@@ -1,26 +1,79 @@
 
-.mat-icon-button {
-    padding: 0;
-    min-width: 0;
-    width: 280px;
-    height: 40px;
-    flex-shrink: 0;
-    line-height: 40px;
-    border-radius: 10%;
+.body_div {
+  width: 1200px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
-.button
-{
-    width :280px;
-    text-align: center;
+
+.toolbar {
+  width: auto;
+  height: 55px;
+  background-color: #4a138c;
+  border-radius: 10px;
 }
-th
-{
-    margin-right: 100px;
+
+.toolbar_div {
+  width: 1200px;
+  height: 55px;
+  float: left;
+  margin: 0 0 20px 0;
+  border-radius: 15px;
 }
-a.action
-{
-    color:red;
-    cursor: pointer;
+
+.toolbar_title {
+  display: block;
+  width: 120px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  padding: 7px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.toolbar-home-btn {
+  text-decoration: none;
+  color: transparent;
+}
+
+.toolbar-home-btn:hover {
+  font-weight: bold;
+}
+
+.span-home-btn {
+  margin: 5px;
+}
+
+span {
+  color: lavenderblush;
+}
+
+.toolbar_div_button {
+  height: 30px;
+  width: 100px;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 10px 0 10px;
+}
+
+.toolbar_button {
+  display: inline-block;
+  height: 30px;
+  color: lavenderblush;
+  font-size: 14px;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+.toolbar_button:hover {
+  height: 30px;
+  background-color: #7c43bd;
+  border-radius: 10px;
 }
 a.action:hover
 {
