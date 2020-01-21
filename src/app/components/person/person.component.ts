@@ -1,11 +1,10 @@
 
-import { Component, ViewChild, Input, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, Input, OnInit, ChangeDetectorRef, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
 import { Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort'
-import { map } from 'rxjs/operators';
 export interface UsersData {
   id: number;
   name: string;
@@ -18,8 +17,10 @@ export interface UsersData {
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit {
-  matTable: MatTableDataSource<UsersData>
+export class PersonComponent implements OnInit, AfterContentChecked{
+
+  matTable : MatTableDataSource<UsersData>
+
   profiles = []
   displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'action'];
   dataSource: Observable<Array<UsersData>>;
@@ -29,7 +30,7 @@ export class PersonComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   id:number;
   author:string ='';
- 
+  ngAfterContentChecked() { this.matTable.sort = this.sort }
   constructor(private httpClient:HttpClient,public dialog: MatDialog, changeDetector: ChangeDetectorRef)
   {
     this.dataSource = this.getProfiles();
@@ -43,9 +44,7 @@ export class PersonComponent implements OnInit {
     console.log(this.dataSource);
   }
   ngOnInit() {
-    this.matTable.paginator = this.paginator;
     this.matTable.sort = this.sort;
-
   }
   getProfiles(): Observable<any> {
     return this.httpClient.get<UsersData[]>('http://localhost:3000/profile')

@@ -1,72 +1,45 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 2,
-      "title": "json-server2",
-      "author": "typicode2"
-    }
-  ],
-  "book": [
-    {
-      "id": 1,
-      "title": "W pustyni i w puszczy",
-      "author": "Henryk Sienkiewicz",
-      "pages": 420
-    },
-    {
-      "id": 2,
-      "title": "Stara Era",
-      "author": "Stara Era",
-      "pages": "100"
-    }
-  ],
-  "profile": [
-    {
-      "id": 3,
-      "name": "Maciek2",
-      "surname": "Parfieńczyk2",
-      "pesel": "12345678911"
-    },
-    {
-      "id": 6,
-      "name": "zzzzzzzzzz",
-      "surname": "sddfdffd",
-      "pesel": "12dhfhfhd"
-    },
-    {
-      "id": 8,
-      "name": "zs",
-      "surname": "zs",
-      "pesel": "10432663"
-    },
-    {
-      "id": 9,
-      "name": "asdok",
-      "surname": "okfo",
-      "pesel": "123123123"
-    },
-    {
-      "id": 10,
-      "name": "zx",
-      "surname": "f",
-      "pesel": "777"
-    },
-    {
-      "name": "zxzc",
-      "surname": "zxczxc",
-      "pesel": "12312",
-      "id": 14
-    },
-    {
-      "id": 19,
-      "name": "okr",
-      "surname": "dasok",
-      "pesel": "77777777777"
-    }
-  ]
+    "posts": [{
+            "id": 1,
+            "title": "json-server",
+            "author": "typicode"
+        },
+        {
+            "id": 2,
+            "title": "json-server2",
+            "author": "typicode2"
+        }
+    ],
+    "book": [{
+            "id": 1,
+            "title": "W pustyni i w puszczy",
+            "author": "Henryk Sienkiewicz",
+            "pages": 420
+        },
+        {
+            "id": 2,
+            "title": "Stara Era",
+            "author": "Stara Era",
+            "pages": "100"
+        }
+    ],
+    "profile": [{
+            "id": 3,
+            "name": "Maciek2",
+            "surname": "Parfieńczyk2",
+            "pesel": "12345678911"
+        },
+        {
+            "id": 8,
+            "name": "zs",
+            "surname": "zs",
+            "pesel": "10432663"
+        },
+        {
+            "id": 10,
+            "name": "zx",
+            "surname": "f",
+            "pesel": "777"
+        }
+    ]
 }
