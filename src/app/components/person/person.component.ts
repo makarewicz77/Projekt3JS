@@ -78,17 +78,23 @@ export class PersonComponent implements OnInit, AfterContentChecked{
     )
     this.matTable = new MatTableDataSource(this.profiles)
     };
-  addRowData(row_obj)
-  {
-    this.httpClient.post<UsersData>('http://localhost:3000/profile',
+    addRowData(row_obj)
+    {
+      this.httpClient.post<UsersData>('http://localhost:3000/profile',
       {
-        complete: () =>
-        this.refresh()
+      id:row_obj.id,
+      name:row_obj.name,
+      surname:row_obj.surname,
+      pesel:row_obj.pesel
+      })
+      .subscribe(
+        {
+          complete: () =>
+          this.refresh()
+        }
+      );
       }
-    );
-    
-   
-  }
+=
   updateRowData(row_obj) {
     this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
       {
