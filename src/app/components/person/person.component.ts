@@ -1,3 +1,4 @@
+
 import { Component, ViewChild, Input, OnInit, ChangeDetectorRef, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
@@ -19,9 +20,10 @@ export interface UsersData {
 export class PersonComponent implements OnInit, AfterContentChecked{
 
   matTable : MatTableDataSource<UsersData>
+
   profiles = []
-  displayedColumns: string[] = ['id', 'name', 'surname','pesel','action'];
-  dataSource : Observable<Array<UsersData>>;
+  displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'action'];
+  dataSource: Observable<Array<UsersData>>;
 
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   @ViewChild(MatSort,{static:true}) sort: MatSort;
@@ -33,8 +35,7 @@ export class PersonComponent implements OnInit, AfterContentChecked{
   {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
-      response =>
-      {
+      response => {
         this.profiles = response;
         this.matTable = new MatTableDataSource(this.profiles)
       }
@@ -45,24 +46,23 @@ export class PersonComponent implements OnInit, AfterContentChecked{
   ngOnInit() {
     this.matTable.sort = this.sort;
   }
-  getProfiles(): Observable<any>
-  {
+  getProfiles(): Observable<any> {
     return this.httpClient.get<UsersData[]>('http://localhost:3000/profile')
-     }
+  }
 
-  openDialog(action,obj) {
+  openDialog(action, obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '320px',
-      data:obj
+      data: obj
     })
-    
+
     dialogRef.afterClosed().subscribe(result => {
-      if(result.event == 'Add'){
+      if (result.event == 'Add') {
         this.addRowData(result.data);
-      }else if(result.event == 'Update'){
+      } else if (result.event == 'Update') {
         this.updateRowData(result.data);
-      }else if(result.event == 'Delete'){
+      } else if (result.event == 'Delete') {
         this.deleteRowData(result.data);
       }
     });
@@ -81,13 +81,6 @@ export class PersonComponent implements OnInit, AfterContentChecked{
   addRowData(row_obj)
   {
     this.httpClient.post<UsersData>('http://localhost:3000/profile',
-    {  
-    id:row_obj.id,
-    name:row_obj.name,
-    surname:row_obj.surname,
-    pesel:row_obj.pesel
-    })
-    .subscribe(
       {
         complete: () =>
         this.refresh()
@@ -104,7 +97,18 @@ export class PersonComponent implements OnInit, AfterContentChecked{
         surname:row_obj.surname,
         pesel:row_obj.pesel
         }
-      )
+      );
+
+  }
+  updateRowData(row_obj) {
+    this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
+      {
+        id: row_obj.id,
+        name: row_obj.name,
+        surname: row_obj.surname,
+        pesel: row_obj.pesel
+      }
+    )
       .subscribe(
         {
         complete: () =>
@@ -112,10 +116,9 @@ export class PersonComponent implements OnInit, AfterContentChecked{
         }
       );
   }
-  deleteRowData(row_obj)
-  {
-      const url = 'http://localhost:3000/profile/'+row_obj.id
-      this.httpClient.delete(url)
+  deleteRowData(row_obj) {
+    const url = 'http://localhost:3000/profile/' + row_obj.id
+    this.httpClient.delete(url)
       .subscribe(
         {
         complete: () =>
