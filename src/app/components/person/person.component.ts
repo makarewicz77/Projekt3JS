@@ -1,4 +1,5 @@
-import { Component, ViewChild, Input, OnInit } from '@angular/core';
+
+import { Component, ViewChild, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
@@ -23,13 +24,14 @@ export class PersonComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'action'];
   dataSource: Observable<Array<UsersData>>;
 
-  @ViewChild(MatTable, { static: true }) table: MatTable<any>;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  id: number;
-  author: string = '';
-
-  constructor(private httpClient: HttpClient, public dialog: MatDialog) {
+  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
+  @ViewChild(MatSort,{static:true}) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  id:number;
+  author:string ='';
+ 
+  constructor(private httpClient:HttpClient,public dialog: MatDialog, changeDetector: ChangeDetectorRef)
+  {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
       response => {
@@ -66,18 +68,36 @@ export class PersonComponent implements OnInit {
       }
     });
   }
-  addRowData(row_obj) {
+  refresh() {
+    this.dataSource = this.getProfiles();
+    this.dataSource.subscribe(
+      response =>
+      {
+        this.profiles = response;
+        this.matTable = new MatTableDataSource(this.profiles)
+      }
+    )
+    this.matTable = new MatTableDataSource(this.profiles)
+    };
+  addRowData(row_obj)
+  {
     this.httpClient.post<UsersData>('http://localhost:3000/profile',
       {
-        id: row_obj.id,
-        name: row_obj.name,
-        surname: row_obj.surname,
-        pesel: row_obj.pesel
-      })
-      .subscribe(
-        {
-          complete: () =>
-            this.dataSource = this.getProfiles()
+        complete: () =>
+        this.refresh()
+      }
+    );
+    
+   
+  }
+  updateRowData(row_obj)
+  {
+      this.httpClient.put('http://localhost:3000/profile/'+row_obj.id,
+      {  
+        id:row_obj.id,
+        name:row_obj.name,
+        surname:row_obj.surname,
+        pesel:row_obj.pesel
         }
       );
 
@@ -93,8 +113,8 @@ export class PersonComponent implements OnInit {
     )
       .subscribe(
         {
-          complete: () =>
-            this.dataSource = this.getProfiles()
+        complete: () =>
+        this.refresh()
         }
       );
   }
@@ -103,8 +123,8 @@ export class PersonComponent implements OnInit {
     this.httpClient.delete(url)
       .subscribe(
         {
-          complete: () =>
-            this.dataSource = this.getProfiles()
+        complete: () =>
+        this.refresh()
         }
       );
   }
