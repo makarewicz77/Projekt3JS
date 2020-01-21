@@ -4,13 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,MatFormFieldModule, } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule, MatFormFieldModule, MatSortModule, MatSort} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
-import { TableClientComponent } from './table-client';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Routes, RouterModule } from '@angular/router';
 import { PersonComponent } from './components/person/person.component';
 import { BookComponent } from './components/book/book.component';
 import { AuthorComponent } from './components/author/author.component';
@@ -21,7 +19,6 @@ import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-bo
   declarations: [
     AppComponent,
     DialogBoxComponent,
-    TableClientComponent
     PersonComponent,
     BookComponent,
     AuthorComponent,
@@ -42,7 +39,8 @@ import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-bo
     MatIconModule,
     MatCardModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSortModule
   ],
   entryComponents :
   [
