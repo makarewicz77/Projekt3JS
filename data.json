@@ -51,27 +51,16 @@
       "id": 9
     },
     {
+      "id": 10,
       "name": "zx",
       "surname": "f",
-      "id": 10
+      "pesel": "777"
     },
     {
       "name": "v",
       "surname": "c",
       "pesel": "12",
       "id": 11
-    },
-    {
-      "name": "z",
-      "surname": "c",
-      "pesel": "f",
-      "id": 12
-    },
-    {
-      "name": "g",
-      "surname": "d",
-      "pesel": "112",
-      "id": 13
     },
     {
       "name": "zxzc",

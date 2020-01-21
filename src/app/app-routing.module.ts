@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TableClientComponent } from './table-client';
-import { AppComponent } from './app.component';
+import { PersonComponent } from './components/person/person.component';
+import { BookComponent } from './components/book/book.component';
+import { AuthorComponent } from './components/author/author.component';
 
 
 const routes: Routes = [
-  { path: 'table-client', component: TableClientComponent },
+  { path: 'person', component: PersonComponent },
+  { path: 'book', component: BookComponent },
+  { path: 'author', component: AuthorComponent },
 
   { path: '**', redirectTo: '' }
 ];
