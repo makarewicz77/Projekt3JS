@@ -1,10 +1,10 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MatDialog, MatTable } from '@angular/material';
+import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
 import { Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort'
-
+import { map } from 'rxjs/operators';
 export interface UsersData {
   id: number;
   name: string;
@@ -17,24 +17,39 @@ export interface UsersData {
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent{
-
+export class PersonComponent implements OnInit{
+  matTable : MatTableDataSource<UsersData>
+  profiles = []
   displayedColumns: string[] = ['id', 'name', 'surname','pesel','action'];
   dataSource : Observable<Array<UsersData>>;
 
   @ViewChild(MatTable,{static:true}) table: MatTable<any>;
   @ViewChild(MatSort,{static:true}) sort: MatSort;
-
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   id:number;
   author:string ='';
  
   constructor(private httpClient:HttpClient,public dialog: MatDialog)
   {
     this.dataSource = this.getProfiles();
+    this.dataSource.subscribe(
+      response =>
+      {
+        this.profiles = response;
+        this.matTable = new MatTableDataSource(this.profiles)
+      }
+    )
+    this.matTable = new MatTableDataSource(this.profiles)
     console.log(this.dataSource);
   }
-  getProfiles(): Observable<any>{
-    return this.httpClient.get('http://localhost:3000/profile')
+  ngOnInit() {
+    this.matTable.paginator = this.paginator;
+    this.matTable.sort = this.sort;
+
+  }
+  getProfiles(): Observable<any>
+  {
+    return this.httpClient.get<UsersData[]>('http://localhost:3000/profile')
      }
 
   openDialog(action,obj) {
@@ -101,10 +116,12 @@ export class PersonComponent{
   }
 
   public doFilter = (value: string) => {
-    //this.dataSource.filter = value.trim().toLocaleLowerCase();
-    this.dataSource.subscribe(persons => persons.filter(p => p.name = value));
-    complete: () =>
-        this.dataSource = this.getProfiles();
+    //this.dataSource.filter = 
+    //return this.dataSource.subscribe(persons => persons.filter(p => p.name === value))
+    this.matTable.filter = value.trim().toLocaleLowerCase();
+    if (this.matTable.paginator) {
+      this.matTable.paginator.firstPage();
+    }
   }
 
   title = 'Projekt3JS';
