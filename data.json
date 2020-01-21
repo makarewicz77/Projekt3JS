@@ -54,7 +54,7 @@
       "id": 10,
       "name": "zx",
       "surname": "f",
-      "pesel": "7771232132"
+      "pesel": "777"
     },
     {
       "name": "zxzc",
@@ -73,6 +73,12 @@
       "surname": "dasok",
       "pesel": "123142",
       "id": 19
+    },
+    {
+      "name": "cipcia",
+      "surname": "dupcia",
+      "pesel": "peselzroxy",
+      "id": 17
     }
   ]
 }
