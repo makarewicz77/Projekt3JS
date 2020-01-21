@@ -94,6 +94,7 @@ export class PersonComponent implements OnInit, AfterContentChecked{
         }
       );
       }
+=
   updateRowData(row_obj) {
     this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
       {
