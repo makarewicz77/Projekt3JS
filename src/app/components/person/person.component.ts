@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
@@ -29,7 +29,7 @@ export class PersonComponent implements OnInit{
   id:number;
   author:string ='';
  
-  constructor(private httpClient:HttpClient,public dialog: MatDialog)
+  constructor(private httpClient:HttpClient,public dialog: MatDialog, changeDetector: ChangeDetectorRef)
   {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
@@ -69,6 +69,17 @@ export class PersonComponent implements OnInit{
       }
     });
   }
+  refresh() {
+    this.dataSource = this.getProfiles();
+    this.dataSource.subscribe(
+      response =>
+      {
+        this.profiles = response;
+        this.matTable = new MatTableDataSource(this.profiles)
+      }
+    )
+    this.matTable = new MatTableDataSource(this.profiles)
+    };
   addRowData(row_obj)
   {
     this.httpClient.post<UsersData>('http://localhost:3000/profile',
@@ -81,9 +92,10 @@ export class PersonComponent implements OnInit{
     .subscribe(
       {
         complete: () =>
-        this.dataSource = this.getProfiles()
+        this.refresh()
       }
     );
+    
    
   }
   updateRowData(row_obj)
@@ -99,7 +111,7 @@ export class PersonComponent implements OnInit{
       .subscribe(
         {
         complete: () =>
-        this.dataSource = this.getProfiles()
+        this.refresh()
         }
       );
   }
@@ -110,7 +122,7 @@ export class PersonComponent implements OnInit{
       .subscribe(
         {
         complete: () =>
-        this.dataSource = this.getProfiles()
+        this.refresh()
         }
       );
   }
