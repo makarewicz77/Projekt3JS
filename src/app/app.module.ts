@@ -4,13 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,MatFormFieldModule, } from '@angular/material';
+import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule, MatFormFieldModule, MatSortModule, MatSort} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { PersonComponent } from './components/person/person.component';
 import { BookComponent } from './components/book/book.component';
 import { AuthorComponent } from './components/author/author.component';
+import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-box-book.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // Some imports for menu modules
 
 @NgModule({
@@ -19,7 +22,8 @@ import { AuthorComponent } from './components/author/author.component';
     DialogBoxComponent,
     PersonComponent,
     BookComponent,
-    AuthorComponent
+    AuthorComponent,
+    DialogBoxBookComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +39,15 @@ import { AuthorComponent } from './components/author/author.component';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatSortModule,
+    FlexLayoutModule
   ],
   entryComponents :
   [
-    DialogBoxComponent
+    DialogBoxComponent,
+    DialogBoxBookComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

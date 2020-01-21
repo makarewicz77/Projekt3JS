@@ -11,20 +11,21 @@
       "author": "typicode2"
     }
   ],
-  "comments": [
+  "book": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "title": "W pustyni i w puszczy",
+      "author": "Henryk Sienkiewicz",
+      "pages": 420
+    },
+    {
+      "id": 2,
+      "title": "Stara Era",
+      "author": "Stara Era",
+      "pages": "100"
     }
   ],
   "profile": [
-    {
-      "id": 2,
-      "name": "Maciek2",
-      "surname": "Parfieńczyk2",
-      "pesel": "12345678911"
-    },
     {
       "id": 3,
       "name": "Maciek2",
@@ -36,12 +37,6 @@
       "name": "radfdfgdfg",
       "surname": "sddfdffd",
       "pesel": "12dhfhfhd"
-    },
-    {
-      "id": 7,
-      "name": "Kacper",
-      "surname": "Makar",
-      "pesel": "12312341124"
     },
     {
       "name": "zs",
@@ -56,9 +51,10 @@
       "id": 9
     },
     {
+      "id": 10,
       "name": "zx",
       "surname": "f",
-      "id": 10
+      "pesel": "777"
     },
     {
       "name": "v",
@@ -67,22 +63,22 @@
       "id": 11
     },
     {
-      "name": "z",
-      "surname": "c",
-      "pesel": "f",
-      "id": 12
-    },
-    {
-      "name": "g",
-      "surname": "d",
-      "pesel": "112",
-      "id": 13
-    },
-    {
       "name": "zxzc",
       "surname": "zxczxc",
       "pesel": "12312",
       "id": 14
+    },
+    {
+      "name": "d",
+      "surname": "d",
+      "pesel": "3",
+      "id": 15
+    },
+    {
+      "name": "d",
+      "surname": "d",
+      "pesel": "3",
+      "id": 16
     }
   ]
 }

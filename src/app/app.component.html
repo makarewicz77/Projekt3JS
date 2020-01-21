@@ -10,31 +10,53 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-    <title>First AngularJS Application</title>
-    <script src= "~/Scripts/angular.js"></script>
+  <title>First AngularJS Application</title>
+  <script src="~/Scripts/angular.js"></script>
 </head>
-<body ng-app >
 
-  <h1>Welcome to Library App !</h1>
+<body ng-app>
 
-  <!-- MENU -->
+  <div class="body_div">
+    <!-- TOOLBAR -->
+    <div class="toolbar_div">
+      <mat-toolbar class="toolbar">
+        <div class="toolbar_title">
+          <a class="nav-item nav-link toolbar-home-btn" routerLink="/">
+            <span class="span-home-btn">Library app</span>
+          </a>
+        </div>
+        <div class="toolbar_div_button">
+          <span class="span_btn">
+            <a class="nav-item nav-link" routerLink="/person">
+              <button class="toolbar_button">Client</button>
+            </a>
+          </span>
+        </div>
+        <div class="toolbar_div_button">
+          <span class="span_btn">
+            <a class="nav-item nav-link" routerLink="/book">
+              <button class="toolbar_button">Książka</button>
+            </a>
+          </span>
+        </div>
+        <div class="toolbar_div_button">
+          <span class="span_btn">
+            <a class="nav-item nav-link" routerLink="/author">
+              <button class="toolbar_button">Autor</button>
+            </a>
+          </span>
+        </div>
+      </mat-toolbar>
 
-  <mat-menu #appMenu="matMenu">
-    <button mat-menu-item>Add book</button>
-    <button mat-menu-item>Remove book</button>
-    <button mat-menu-item>Edit book</button>
-  </mat-menu>
+      <hr>
 
-  <hr>
+    </div>
+  </div>
 
-  <button mat-icon-button [matMenuTriggerFor]="appMenu">
-    <mat-icon>asdasdsasdadasdasdasdas</mat-icon>
-  </button>
-  <button (click)="getProfile()">Get profile</button>
-
-  <app-person></app-person>
 </body>
+
 </html>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
