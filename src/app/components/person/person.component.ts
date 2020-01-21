@@ -93,7 +93,6 @@ export class PersonComponent implements OnInit, AfterContentChecked{
         this.refresh()
       }
     );
-    
    
   }
   updateRowData(row_obj)
