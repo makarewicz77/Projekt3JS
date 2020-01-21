@@ -99,5 +99,13 @@ export class PersonComponent{
         }
       );
   }
+
+  public doFilter = (value: string) => {
+    //this.dataSource.filter = value.trim().toLocaleLowerCase();
+    this.dataSource.subscribe(persons => persons.filter(p => p.name = value));
+    complete: () =>
+        this.dataSource = this.getProfiles();
+  }
+
   title = 'Projekt3JS';
 }

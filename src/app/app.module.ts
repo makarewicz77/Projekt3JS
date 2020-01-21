@@ -13,6 +13,7 @@ import { PersonComponent } from './components/person/person.component';
 import { BookComponent } from './components/book/book.component';
 import { AuthorComponent } from './components/author/author.component';
 import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-box-book.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 // Some imports for menu modules
 
 @NgModule({
@@ -40,7 +41,8 @@ import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-bo
     MatCardModule,
     HttpClientModule,
     MatToolbarModule,
-    MatSortModule
+    MatSortModule,
+    FlexLayoutModule
   ],
   entryComponents :
   [
