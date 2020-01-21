@@ -90,18 +90,6 @@ export class PersonComponent implements OnInit {
     
    
   }
-  updateRowData(row_obj)
-  {
-      this.httpClient.put('http://localhost:3000/profile/'+row_obj.id,
-      {  
-        id:row_obj.id,
-        name:row_obj.name,
-        surname:row_obj.surname,
-        pesel:row_obj.pesel
-        }
-      );
-
-  }
   updateRowData(row_obj) {
     this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
       {
