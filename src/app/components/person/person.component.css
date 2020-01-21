@@ -36,7 +36,9 @@ a.action2 {
 a.action2:hover {
   font-weight: bold;
 }
-
+th.mat-sort-header-sorted {
+  color: black;
+}
 .mat-column-id {
   word-wrap: break-word;
   white-space: unset;
