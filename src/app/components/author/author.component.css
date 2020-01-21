@@ -51,6 +51,7 @@
     hyphens: auto;
     border-right: solid 1px #000;
     border-left: solid 2px #000;
+    text-align: center;
   }
   
   .mat-column-title {
@@ -117,7 +118,7 @@
   }
   
   .mat-table {
-    width: 95%;
+    width: 100%;
     box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
     border-radius: 10px;
     background: transparent;
@@ -146,6 +147,14 @@
   
   th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
     padding-right: 0;
+  }
+
+  td.mat-cell:first-of-type {
+    padding-left: 0;
+  }
+  
+  th.mat-header-cell:first-of-type {
+    padding-left: 0;
   }
   
   tr:last-child td{
