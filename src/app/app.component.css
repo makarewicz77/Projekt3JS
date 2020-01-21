@@ -99,3 +99,19 @@ a.action:hover
   .mat-column-action {
     width: 30% !important;
   }
+
+  .book_gif_left {
+    width: 150px;
+    float: left;
+  }
+
+  .book_gif_right {
+    width: 150px;
+    float: right;
+  }
+
+  .kokoszki {
+    background: url(/assets/book1.gif) no-repeat center center;
+    width: 100%;
+    height: 600px;
+  }
