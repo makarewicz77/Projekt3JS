@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
@@ -17,24 +17,22 @@ export interface UsersData {
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.css']
 })
-export class PersonComponent implements OnInit{
-  matTable : MatTableDataSource<UsersData>
+export class PersonComponent implements OnInit {
+  matTable: MatTableDataSource<UsersData>
   profiles = []
-  displayedColumns: string[] = ['id', 'name', 'surname','pesel','action'];
-  dataSource : Observable<Array<UsersData>>;
+  displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'action'];
+  dataSource: Observable<Array<UsersData>>;
 
-  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
-  @ViewChild(MatSort,{static:true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  id:number;
-  author:string ='';
- 
-  constructor(private httpClient:HttpClient,public dialog: MatDialog)
-  {
+  @ViewChild(MatTable, { static: true }) table: MatTable<any>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  id: number;
+  author: string = '';
+
+  constructor(private httpClient: HttpClient, public dialog: MatDialog) {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
-      response =>
-      {
+      response => {
         this.profiles = response;
         this.matTable = new MatTableDataSource(this.profiles)
       }
@@ -47,70 +45,66 @@ export class PersonComponent implements OnInit{
     this.matTable.sort = this.sort;
 
   }
-  getProfiles(): Observable<any>
-  {
+  getProfiles(): Observable<any> {
     return this.httpClient.get<UsersData[]>('http://localhost:3000/profile')
-     }
+  }
 
-  openDialog(action,obj) {
+  openDialog(action, obj) {
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '320px',
-      data:obj
+      data: obj
     })
-    
+
     dialogRef.afterClosed().subscribe(result => {
-      if(result.event == 'Add'){
+      if (result.event == 'Add') {
         this.addRowData(result.data);
-      }else if(result.event == 'Update'){
+      } else if (result.event == 'Update') {
         this.updateRowData(result.data);
-      }else if(result.event == 'Delete'){
+      } else if (result.event == 'Delete') {
         this.deleteRowData(result.data);
       }
     });
   }
-  addRowData(row_obj)
-  {
+  addRowData(row_obj) {
     this.httpClient.post<UsersData>('http://localhost:3000/profile',
-    {  
-    id:row_obj.id,
-    name:row_obj.name,
-    surname:row_obj.surname,
-    pesel:row_obj.pesel
-    })
-    .subscribe(
       {
-        complete: () =>
-        this.dataSource = this.getProfiles()
-      }
-    );
-   
-  }
-  updateRowData(row_obj)
-  {
-      this.httpClient.put('http://localhost:3000/profile/'+row_obj.id,
-      {  
-        id:row_obj.id,
-        name:row_obj.name,
-        surname:row_obj.surname,
-        pesel:row_obj.pesel
-        }
-      )
+        id: row_obj.id,
+        name: row_obj.name,
+        surname: row_obj.surname,
+        pesel: row_obj.pesel
+      })
       .subscribe(
         {
-        complete: () =>
-        this.dataSource = this.getProfiles()
+          complete: () =>
+            this.dataSource = this.getProfiles()
+        }
+      );
+
+  }
+  updateRowData(row_obj) {
+    this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
+      {
+        id: row_obj.id,
+        name: row_obj.name,
+        surname: row_obj.surname,
+        pesel: row_obj.pesel
+      }
+    )
+      .subscribe(
+        {
+          complete: () =>
+            this.dataSource = this.getProfiles()
         }
       );
   }
-  deleteRowData(row_obj)
-  {
-      const url = 'http://localhost:3000/profile/'+row_obj.id
-      this.httpClient.delete(url)
+  deleteRowData(row_obj) {
+    const url = 'http://localhost:3000/profile/' + row_obj.id
+    this.httpClient.delete(url)
       .subscribe(
         {
-        complete: () =>
-        this.dataSource = this.getProfiles()
+          complete: () =>
+            this.dataSource = this.getProfiles()
         }
       );
   }
