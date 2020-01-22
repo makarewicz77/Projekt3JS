@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit, AfterContentChecked, ChangeDetectorRef } 
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { DialogBoxBookComponent } from '../../dialog-boxes/dialog-box-book/dialog-box-book.component';
 import { map } from 'rxjs/operators';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { MatSort } from '@angular/material/sort';
@@ -81,7 +82,7 @@ export class AuthorComponent implements OnInit, AfterContentChecked {
 
   ngAfterContentChecked() { this.matTable.sort = this.sort }
 
-  constructor(private authorService: AuthorService) {
+  constructor(private authorService: AuthorService, private httpClient: HttpClient) {
     this.dataSource = authorService.getAllAuthors();
     this.dataSource.subscribe(
       response => {
@@ -108,4 +109,79 @@ export class AuthorComponent implements OnInit, AfterContentChecked {
       this.matTable.paginator.firstPage();
     }
   }
+
+  addRowData(row_obj) {
+    this.httpClient.post<Author>('http://localhost:3000/book',
+      {
+        id: row_obj.id,
+        name: row_obj.name,
+        surname: row_obj.surname,
+        books: row_obj.book
+      })
+      .subscribe(
+        {
+          complete: () =>
+          this.refresh()
+        }
+      );
+
+  }
+  
+  updateRowData(row_obj) {
+    this.httpClient.put('http://localhost:3000/book/' + row_obj.id,
+      {
+        id: row_obj.id,
+        title: row_obj.title,
+        author: row_obj.author,
+        pages: row_obj.pages,
+        type: row_obj.type
+      }
+    )
+      .subscribe(
+        {
+          complete: () =>
+            this.refresh()
+        }
+      );
+  }
+
+  deleteRowData(row_obj) {
+    const url = 'http://localhost:3000/book/' + row_obj.id
+    this.httpClient.delete(url)
+      .subscribe(
+        {
+          complete: () =>
+            this.refresh()
+        }
+      );
+  }
+
+  refresh() {
+    this.dataSource = this.authorService.getAllAuthors();
+    this.dataSource.subscribe(
+      response => {
+        this.authors = response;
+        this.matTable = new MatTableDataSource(this.authors)
+      }
+    )
+    this.matTable = new MatTableDataSource(this.authors)
+  };
+
+  // openDialog(action, obj) {
+  //   obj.action = action;
+  //   const dialogRef = this.dialog.open(DialogBoxBookComponent, {
+  //     width: '320px',
+  //     data: obj
+  //   })
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result.event == 'Add') {
+  //       this.addRowData(result.data);
+  //     } else if (result.event == 'Update') {
+  //       this.updateRowData(result.data);
+  //     } else if (result.event == 'Delete') {
+  //       this.deleteRowData(result.data);
+  //     }
+  //   });
+  // }
 }
