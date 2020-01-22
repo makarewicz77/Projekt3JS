@@ -1,25 +1,23 @@
 {
-  "authors":
-  [
+  "authors": [
     {
-    "id": 1,
-    "name": "Adam",
-    "surname": "Mickiewicz",
-    "books":
-    [
-      {
-      "id":1,
-      "title": "Dziady",
-      "author":"Adam Mickiewicz",
-      "pages": 320
-      },
-      {
-        "id":2,
-        "title": "Dziady2",
-        "author":"Adam Mickiewicz",
-        "pages": 320
+      "id": 1,
+      "name": "Adam",
+      "surname": "Mickiewicz",
+      "books": [
+        {
+          "id": 1,
+          "title": "Dziady",
+          "author": "Adam Mickiewicz",
+          "pages": 320
+        },
+        {
+          "id": 2,
+          "title": "Dziady2",
+          "author": "Adam Mickiewicz",
+          "pages": 320
         }
-    ]
+      ]
     }
   ],
   "posts": [
@@ -81,6 +79,24 @@
       "surname": "dasd",
       "pesel": "123",
       "id": 18
+    },
+    {
+      "name": "asd",
+      "surname": "asd",
+      "pesel": "12312321312",
+      "id": 19
+    },
+    {
+      "name": "asdasd",
+      "surname": "asdsad",
+      "pesel": "12312421214",
+      "id": 20
+    },
+    {
+      "name": "asdas",
+      "surname": "asdas",
+      "pesel": "11232131231",
+      "id": 21
     }
   ]
 }
