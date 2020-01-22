@@ -167,21 +167,21 @@ export class AuthorComponent implements OnInit, AfterContentChecked {
     this.matTable = new MatTableDataSource(this.authors)
   };
 
-  openDialog(action, obj) {
-    obj.action = action;
-    const dialogRef = this.dialog.open(DialogBoxBookComponent, {
-      width: '320px',
-      data: obj
-    })
+  // openDialog(action, obj) {
+  //   obj.action = action;
+  //   const dialogRef = this.dialog.open(DialogBoxBookComponent, {
+  //     width: '320px',
+  //     data: obj
+  //   })
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.event == 'Add') {
-        this.addRowData(result.data);
-      } else if (result.event == 'Update') {
-        this.updateRowData(result.data);
-      } else if (result.event == 'Delete') {
-        this.deleteRowData(result.data);
-      }
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     if (result.event == 'Add') {
+  //       this.addRowData(result.data);
+  //     } else if (result.event == 'Update') {
+  //       this.updateRowData(result.data);
+  //     } else if (result.event == 'Delete') {
+  //       this.deleteRowData(result.data);
+  //     }
+  //   });
+  // }
 }
