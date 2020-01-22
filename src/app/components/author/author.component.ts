@@ -6,7 +6,6 @@ import { map } from 'rxjs/operators';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { MatSort } from '@angular/material/sort';
 import { rowsAnimation } from '../../template.animations';
-import {map} from 'rxjs/operators';
 import { ErrorStateMatcher } from '@angular/material';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 @Injectable({
@@ -68,7 +67,7 @@ export class AuthorComponent implements OnInit, AfterContentChecked {
 
   matTable: MatTableDataSource<Author>
 
-  displayedColumns: string[] = ['name', 'surname', 'title', 'pages'];
+  displayedColumns: string[] = ['name', 'surname', 'books'];
 
   authorId: number;
   author: Author;

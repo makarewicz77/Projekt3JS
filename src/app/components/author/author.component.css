@@ -73,7 +73,7 @@ a.action2:hover {
     border-right: solid 1px #000;
 }
 
-.mat-column-title {
+.mat-column-books {
     word-wrap: break-word;
     white-space: unset;
     flex: 0 0 28%;
