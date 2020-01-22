@@ -1,4 +1,27 @@
 {
+  "authors":
+  [
+    {
+    "id": 1,
+    "name": "Adam",
+    "surname": "Mickiewicz",
+    "books":
+    [
+      {
+      "id":1,
+      "title": "Dziady",
+      "author":"Adam Mickiewicz",
+      "pages": 320
+      },
+      {
+        "id":2,
+        "title": "Dziady2",
+        "author":"Adam Mickiewicz",
+        "pages": 320
+        }
+    ]
+    }
+  ],
   "posts": [
     {
       "id": 1,
@@ -16,13 +39,22 @@
       "id": 1,
       "title": "W pustyni i w puszczy",
       "author": "Henryk Sienkiewicz",
-      "pages": 420
+      "pages": 420,
+      "type": "fantasy"
     },
     {
       "id": 2,
       "title": "Stara Era",
       "author": "Stara Era",
-      "pages": "100"
+      "pages": "100",
+      "type": "fantasy"
+    },
+    {
+      "title": "adsf",
+      "author": "asdf",
+      "pages": "asdf",
+      "type": "asdf",
+      "id": 3
     }
   ],
   "profile": [
@@ -37,12 +69,6 @@
       "name": "zs",
       "surname": "zs",
       "pesel": "10432663"
-    },
-    {
-      "id": 10,
-      "name": "zx",
-      "surname": "f",
-      "pesel": "777"
     },
     {
       "name": "zxzc",

@@ -1,19 +1,22 @@
 <h1 mat-dialog-title><strong>{{action}}</strong> book</h1>
 <div mat-dialog-content>
-  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
-    <input placeholder="{{action}} Title" matInput [(ngModel)]="local_data.title">
-  </mat-form-field>
-  <mat-form-field *ngIf="action != 'Delete'">
-    <input placeholder="{{action}} Author" matInput [(ngModel)]="local_data.author">
-  </mat-form-field>
-  <mat-form-field *ngIf="action != 'Delete'">
-    <input placeholder="{{action}} Pages" matInput [(ngModel)]="local_data.pages">
-  </mat-form-field>
-  <ng-template #elseTemplate>
-    Sure to delete book <b>{{local_data.title}}</b>?
-  </ng-template>
+    <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+        <input placeholder="{{action}} Title" matInput [(ngModel)]="local_data.title">
+    </mat-form-field>
+    <mat-form-field *ngIf="action != 'Delete'">
+        <input placeholder="{{action}} Author" matInput [(ngModel)]="local_data.author">
+    </mat-form-field>
+    <mat-form-field *ngIf="action != 'Delete'">
+        <input placeholder="{{action}} Pages" matInput [(ngModel)]="local_data.pages">
+    </mat-form-field>
+    <mat-form-field *ngIf="action != 'Delete'">
+        <input placeholder="{{action}} Type" matInput [(ngModel)]="local_data.type">
+    </mat-form-field>
+    <ng-template #elseTemplate>
+        Sure to delete book <b>{{local_data.title}}</b>?
+    </ng-template>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="doAction()">{{action}}</button>
-  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+    <button mat-button (click)="doAction()">{{action}}</button>
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
 </div>
