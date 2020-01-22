@@ -14,6 +14,7 @@ import { BookComponent } from './components/book/book.component';
 import { AuthorComponent } from './components/author/author.component';
 import { DialogBoxBookComponent } from './dialog-boxes/dialog-box-book/dialog-box-book.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HomePageComponent } from './components/home-page/home-page.component';
 // Some imports for menu modules
 
 @NgModule({
@@ -23,7 +24,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     PersonComponent,
     BookComponent,
     AuthorComponent,
-    DialogBoxBookComponent
+    DialogBoxBookComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,11 @@
-
 import { Component, ViewChild, Input, OnInit, ChangeDetectorRef, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
 import { Observable } from 'rxjs';
-import { MatSort } from '@angular/material/sort'
+import { MatSort } from '@angular/material/sort';
+import { rowsAnimation } from '../../template.animations';
+
 export interface UsersData {
   id: number;
   name: string;
@@ -15,24 +16,24 @@ export interface UsersData {
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
+  animations: [rowsAnimation],
 })
-export class PersonComponent implements OnInit, AfterContentChecked{
+export class PersonComponent implements OnInit, AfterContentChecked {
 
-  matTable : MatTableDataSource<UsersData>
+  matTable: MatTableDataSource<UsersData>
 
   profiles = []
   displayedColumns: string[] = ['id', 'name', 'surname', 'pesel', 'action'];
   dataSource: Observable<Array<UsersData>>;
 
-  @ViewChild(MatTable,{static:true}) table: MatTable<any>;
-  @ViewChild(MatSort,{static:true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  id:number;
-  author:string ='';
+  @ViewChild(MatTable, { static: true }) table: MatTable<any>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  id: number;
+  author: string = '';
   ngAfterContentChecked() { this.matTable.sort = this.sort }
-  constructor(private httpClient:HttpClient,public dialog: MatDialog, changeDetector: ChangeDetectorRef)
-  {
+  constructor(private httpClient: HttpClient, public dialog: MatDialog, changeDetector: ChangeDetectorRef) {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
       response => {
@@ -70,30 +71,29 @@ export class PersonComponent implements OnInit, AfterContentChecked{
   refresh() {
     this.dataSource = this.getProfiles();
     this.dataSource.subscribe(
-      response =>
-      {
+      response => {
         this.profiles = response;
         this.matTable = new MatTableDataSource(this.profiles)
       }
     )
     this.matTable = new MatTableDataSource(this.profiles)
-    };
-    addRowData(row_obj)
-    {
-      this.httpClient.post<UsersData>('http://localhost:3000/profile',
+  };
+  addRowData(row_obj) {
+    this.httpClient.post<UsersData>('http://localhost:3000/profile',
       {
-      id:row_obj.id,
-      name:row_obj.name,
-      surname:row_obj.surname,
-      pesel:row_obj.pesel
+        id: row_obj.id,
+        name: row_obj.name,
+        surname: row_obj.surname,
+        pesel: row_obj.pesel
       })
       .subscribe(
         {
           complete: () =>
-          this.refresh()
+            this.refresh()
         }
       );
-      }
+  }
+
   updateRowData(row_obj) {
     this.httpClient.put('http://localhost:3000/profile/' + row_obj.id,
       {
@@ -105,8 +105,8 @@ export class PersonComponent implements OnInit, AfterContentChecked{
     )
       .subscribe(
         {
-        complete: () =>
-        this.refresh()
+          complete: () =>
+            this.refresh()
         }
       );
   }
@@ -115,8 +115,8 @@ export class PersonComponent implements OnInit, AfterContentChecked{
     this.httpClient.delete(url)
       .subscribe(
         {
-        complete: () =>
-        this.refresh()
+          complete: () =>
+            this.refresh()
         }
       );
   }
