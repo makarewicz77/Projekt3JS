@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
-import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule, MatFormFieldModule, MatSortModule, MatSort} from '@angular/material';
+import { FormsModule, FormControl, FormGroup } from '@angular/forms';
+import { MatMenuModule, MatButtonModule, MatIconModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule, MatFormFieldModule, MatSortModule, MatSort, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
@@ -25,7 +24,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     BookComponent,
     AuthorComponent,
     DialogBoxBookComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,9 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     DialogBoxComponent,
     DialogBoxBookComponent
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
