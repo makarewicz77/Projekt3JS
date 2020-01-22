@@ -41,28 +41,11 @@ a.action2:hover {
     font-weight: bold;
 }
 
-.mat-column-id {
+.mat-column-name {
     word-wrap: break-word;
     white-space: unset;
     flex: 0 0 28%;
-    width: 5% !important;
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-word;
-    -ms-hyphens: auto;
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto;
-    border-right: solid 1px #000;
-    border-left: solid 2px #000;
-    text-align: center;
-}
-
-.mat-column-title {
-    word-wrap: break-word;
-    white-space: unset;
-    flex: 0 0 28%;
-    width: 35% !important;
+    width: 30% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -74,11 +57,27 @@ a.action2:hover {
     border-right: solid 1px #000;
 }
 
-.mat-column-author {
+.mat-column-surname {
     word-wrap: break-word;
     white-space: unset;
     flex: 0 0 18%;
-    width: 35% !important;
+    width: 30% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    padding: 8px;
+    border-right: solid 1px #000;
+}
+
+.mat-column-title {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 28%;
+    width: 30% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -104,6 +103,7 @@ a.action2:hover {
     hyphens: auto;
     padding: 8px;
     border-right: solid 1px #000;
+    min-width: 60px;
 }
 
 .mat-column-action {
@@ -126,12 +126,14 @@ a.action2:hover {
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
     border-radius: 10px;
     background: transparent;
+    margin-top: 10px;
 }
 
 .mat-button,
 .mat-flat-button {
     background-color: #4a138c;
-    margin: 0 0 10px;
+    color: lavenderblush;
+    margin: 0 0 0 10px;
 }
 
 table {
@@ -155,12 +157,12 @@ td.mat-cell:last-of-type {
     padding-right: 0;
 }
 
-td.mat-cell:first-of-type {
-    padding-left: 0;
+th.mat-header-cell:first-of-type {
+    padding-left: 8px;
 }
 
-th.mat-header-cell:first-of-type {
-    padding-left: 0;
+td.mat-cell:first-of-type {
+    padding-left: 8px;
 }
 
 tr:last-child td {
@@ -181,5 +183,4 @@ th:first-child {
 
 th:last-child {
     border-top-right-radius: 10px;
-    padding: 8px;
 }

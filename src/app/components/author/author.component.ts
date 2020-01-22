@@ -1,12 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import {Injectable} from "@angular/core";
+import { Component, ViewChild, OnInit, AfterContentChecked, ChangeDetectorRef } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSort } from '@angular/material/sort';
+import { rowsAnimation } from '../../template.animations';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthorService {
 
   constructor(private httpService: HttpClient) {
@@ -22,6 +26,7 @@ export class AuthorService {
     );
   }
 }
+
 export interface Deserializable {
   deserialize(input: any): this;
 }
@@ -35,7 +40,7 @@ export class Book implements Deserializable {
   deserialize(input: any): this {
     return Object.assign(this, input);
   }
-  
+
 }
 export class Author implements Deserializable {
   id: number;
@@ -53,15 +58,53 @@ export class Author implements Deserializable {
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
-  styleUrls: ['./author.component.css']
+  styleUrls: ['./author.component.css'],
+  animations: [rowsAnimation],
 })
-export class AuthorComponent {
+
+export class AuthorComponent implements OnInit, AfterContentChecked {
+
+  matTable: MatTableDataSource<Author>
+
+  displayedColumns: string[] = ['name', 'surname', 'title', 'pages'];
+
   authorId: number;
   author: Author;
   authors: Author[];
-  constructor(private authorService: AuthorService) { }
-  public getAuthor()
-  {
+
+  dataSource: Observable<Array<Author>>;
+
+  @ViewChild(MatTable, { static: true }) table: MatTable<any>;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+
+  ngAfterContentChecked() { this.matTable.sort = this.sort }
+
+  constructor(private authorService: AuthorService) {
+    this.dataSource = authorService.getAllAuthors();
+    this.dataSource.subscribe(
+      response => {
+        this.authors = response;
+        this.matTable = new MatTableDataSource(this.authors)
+      }
+    )
+    this.matTable = new MatTableDataSource(this.authors)
+  }
+
+  ngOnInit() {
+    this.matTable.sort = this.sort;
+  }
+
+  public getAuthor() {
     this.authorService.getAuthor(this.authorId).subscribe(author => this.author = author);
+  }
+
+  public doFilter = (value: string) => {
+    //this.dataSource.filter = 
+    //return this.dataSource.subscribe(persons => persons.filter(p => p.name === value))
+    this.matTable.filter = value.trim().toLocaleLowerCase();
+    if (this.matTable.paginator) {
+      this.matTable.paginator.firstPage();
+    }
   }
 }
