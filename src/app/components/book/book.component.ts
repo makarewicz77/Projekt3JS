@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxBookComponent } from '../../dialog-boxes/dialog-box-book/dialog-box-book.component';
 import { Observable } from 'rxjs';
-import { MatSort } from '@angular/material/sort'
+import { MatSort } from '@angular/material/sort';
 import { rowsAnimation } from '../../template.animations';
 
 export interface BookData {
@@ -13,12 +13,14 @@ export interface BookData {
   pages: number;
   type: string;
 }
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css'],
   animations: [rowsAnimation],
 })
+
 export class BookComponent implements OnInit, AfterContentChecked {
 
   matTable: MatTableDataSource<BookData>
