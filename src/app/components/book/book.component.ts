@@ -4,6 +4,7 @@ import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/
 import { DialogBoxBookComponent } from '../../dialog-boxes/dialog-box-book/dialog-box-book.component';
 import { Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort'
+import { rowsAnimation } from '../../template.animations';
 
 export interface BookData {
   id: number;
@@ -15,7 +16,8 @@ export interface BookData {
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.css'],
+  animations: [rowsAnimation],
 })
 export class BookComponent implements OnInit, AfterContentChecked {
 

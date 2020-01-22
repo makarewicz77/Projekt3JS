@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/material';
 import { DialogBoxComponent } from '../../dialog-box/dialog-box.component';
 import { Observable } from 'rxjs';
-import { MatSort } from '@angular/material/sort'
+import { MatSort } from '@angular/material/sort';
+import { rowsAnimation } from '../../template.animations';
 
 export interface UsersData {
   id: number;
@@ -15,7 +16,8 @@ export interface UsersData {
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
+  animations: [rowsAnimation],
 })
 export class PersonComponent implements OnInit, AfterContentChecked {
 
