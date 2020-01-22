@@ -41,6 +41,10 @@ a.action2:hover {
     font-weight: bold;
 }
 
+.add_row:hover {
+    background-color: #7c43bd;
+}
+
 th.mat-sort-header-sorted {
     color: black;
 }
@@ -162,7 +166,7 @@ td.mat-cell:last-of-type {
 }
 
 th.mat-header-cell:first-of-type {
-    padding-left: auto;
+    padding-left: 8px;
 }
 
 td.mat-cell:first-of-type {

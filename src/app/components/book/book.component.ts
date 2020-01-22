@@ -10,6 +10,7 @@ export interface BookData {
   title: string;
   author: string;
   pages: number;
+  type: string;
 }
 @Component({
   selector: 'app-book',
@@ -21,7 +22,7 @@ export class BookComponent implements OnInit, AfterContentChecked {
   matTable: MatTableDataSource<BookData>
 
   books = []
-  displayedColumns: string[] = ['id', 'title', 'author', 'pages', 'action'];
+  displayedColumns: string[] = ['id', 'title', 'author', 'pages', 'type', 'action'];
   dataSource: Observable<Array<BookData>>;
 
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
@@ -85,7 +86,8 @@ export class BookComponent implements OnInit, AfterContentChecked {
         id: row_obj.id,
         title: row_obj.title,
         author: row_obj.author,
-        pages: row_obj.pages
+        pages: row_obj.pages,
+        type: row_obj.type
       })
       .subscribe(
         {
@@ -101,7 +103,8 @@ export class BookComponent implements OnInit, AfterContentChecked {
         id: row_obj.id,
         title: row_obj.title,
         author: row_obj.author,
-        pages: row_obj.pages
+        pages: row_obj.pages,
+        type: row_obj.type
       }
     )
       .subscribe(
