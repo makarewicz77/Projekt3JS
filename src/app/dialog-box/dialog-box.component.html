@@ -6,8 +6,9 @@
   <mat-form-field *ngIf="action != 'Delete'">
     <input placeholder="{{action}} Surname" matInput [(ngModel)]="local_data.surname">
   </mat-form-field>
-  <mat-form-field *ngIf="action != 'Delete'">
-    <input placeholder="{{action}} Pesel" matInput [(ngModel)]="local_data.pesel">
+  <mat-form-field *ngIf="action != 'Delete'" hintLabel="Max 11 characters" >
+    <input placeholder="{{action}} Pesel" #input minlength="10" #input maxlength="11" matInput [(ngModel)]="local_data.pesel" >
+    <mat-hint align="end">{{input.value?.length || 0}}/11</mat-hint>
   </mat-form-field>
   <ng-template #elseTemplate>
     Sure to delete <b>{{local_data.name}} {{local_data.surname}}</b>?
