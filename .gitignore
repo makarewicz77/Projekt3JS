@@ -9,9 +9,8 @@
 
 # dependencies
 /node_modules
-
 /data.json
-
+data.json
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json

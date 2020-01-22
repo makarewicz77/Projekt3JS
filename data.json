@@ -1,4 +1,27 @@
 {
+  "authors":
+  [
+    {
+    "id": 1,
+    "name": "Adam",
+    "surname": "Mickiewicz",
+    "books":
+    [
+      {
+      "id":1,
+      "title": "Dziady",
+      "author":"Adam Mickiewicz",
+      "pages": 320
+      },
+      {
+        "id":2,
+        "title": "Dziady2",
+        "author":"Adam Mickiewicz",
+        "pages": 320
+        }
+    ]
+    }
+  ],
   "posts": [
     {
       "id": 1,
@@ -52,12 +75,6 @@
       "surname": "zxczxc",
       "pesel": "12312",
       "id": 14
-    },
-    {
-      "name": "Kacperek",
-      "surname": "Makarczyk",
-      "pesel": "1231232131",
-      "id": 17
     },
     {
       "name": "fasfsd",
