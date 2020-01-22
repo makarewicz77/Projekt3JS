@@ -16,18 +16,21 @@
       "id": 1,
       "title": "W pustyni i w puszczy",
       "author": "Henryk Sienkiewicz",
-      "pages": 420
+      "pages": 420,
+      "type": "fantasy"
     },
     {
       "id": 2,
       "title": "Stara Era",
       "author": "Stara Era",
-      "pages": "100"
+      "pages": "100",
+      "type": "fantasy"
     },
     {
-      "title": "dfasd",
-      "author": "asdfasdf",
-      "pages": "888",
+      "title": "adsf",
+      "author": "asdf",
+      "pages": "asdf",
+      "type": "asdf",
       "id": 3
     }
   ],
@@ -43,12 +46,6 @@
       "name": "zs",
       "surname": "zs",
       "pesel": "10432663"
-    },
-    {
-      "id": 10,
-      "name": "zx",
-      "surname": "f",
-      "pesel": "777"
     },
     {
       "name": "zxzc",

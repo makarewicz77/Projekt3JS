@@ -41,6 +41,10 @@ a.action2:hover {
     font-weight: bold;
 }
 
+.add_row:hover {
+    background-color: #7c43bd;
+}
+
 .mat-column-id {
     word-wrap: break-word;
     white-space: unset;
@@ -63,7 +67,7 @@ a.action2:hover {
     word-wrap: break-word;
     white-space: unset;
     flex: 0 0 28%;
-    width: 35% !important;
+    width: 25% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -79,7 +83,7 @@ a.action2:hover {
     word-wrap: break-word;
     white-space: unset;
     flex: 0 0 18%;
-    width: 35% !important;
+    width: 25% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -96,6 +100,23 @@ a.action2:hover {
     white-space: unset;
     flex: 0 0 18%;
     width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    padding: 8px;
+    border-right: solid 1px #000;
+    min-width: 60px;
+}
+
+.mat-column-type {
+    word-wrap: break-word;
+    white-space: unset;
+    flex: 0 0 18%;
+    width: 20% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -158,7 +179,7 @@ td.mat-cell:last-of-type {
 }
 
 th.mat-header-cell:first-of-type {
-    padding-left: auto;
+    padding-left: 8px;
 }
 
 td.mat-cell:first-of-type {

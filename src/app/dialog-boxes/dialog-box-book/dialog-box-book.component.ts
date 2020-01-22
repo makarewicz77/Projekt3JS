@@ -6,6 +6,7 @@ export interface BookData {
   title: string;
   author: string;
   pages: number;
+  type: string;
 }
 
 @Component({

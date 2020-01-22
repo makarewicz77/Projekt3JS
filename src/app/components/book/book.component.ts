@@ -4,24 +4,27 @@ import { MatDialog, MatTable, MatTableDataSource, MatPaginator } from '@angular/
 import { DialogBoxBookComponent } from '../../dialog-boxes/dialog-box-book/dialog-box-book.component';
 import { Observable } from 'rxjs';
 import { MatSort } from '@angular/material/sort'
+import { rowsAnimation } from '../../template.animations';
 
 export interface BookData {
   id: number;
   title: string;
   author: string;
   pages: number;
+  type: string;
 }
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
-  styleUrls: ['./book.component.css']
+  styleUrls: ['./book.component.css'],
+  animations: [rowsAnimation],
 })
 export class BookComponent implements OnInit, AfterContentChecked {
 
   matTable: MatTableDataSource<BookData>
 
   books = []
-  displayedColumns: string[] = ['id', 'title', 'author', 'pages', 'action'];
+  displayedColumns: string[] = ['id', 'title', 'author', 'pages', 'type', 'action'];
   dataSource: Observable<Array<BookData>>;
 
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
@@ -85,7 +88,8 @@ export class BookComponent implements OnInit, AfterContentChecked {
         id: row_obj.id,
         title: row_obj.title,
         author: row_obj.author,
-        pages: row_obj.pages
+        pages: row_obj.pages,
+        type: row_obj.type
       })
       .subscribe(
         {
@@ -101,7 +105,8 @@ export class BookComponent implements OnInit, AfterContentChecked {
         id: row_obj.id,
         title: row_obj.title,
         author: row_obj.author,
-        pages: row_obj.pages
+        pages: row_obj.pages,
+        type: row_obj.type
       }
     )
       .subscribe(
