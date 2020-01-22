@@ -1,4 +1,5 @@
 .body_div {
+    display: block;
     width: 65%;
     height: auto;
     margin-left: auto;
@@ -102,12 +103,12 @@ a.action:hover {
 }
 
 .book_gif_left {
-    width: 150px;
+    width: 12%;
     float: left;
 }
 
 .book_gif_right {
-    width: 150px;
+    width: 12%;
     float: right;
 }
 

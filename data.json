@@ -23,6 +23,12 @@
       "title": "Stara Era",
       "author": "Stara Era",
       "pages": "100"
+    },
+    {
+      "title": "dfasd",
+      "author": "asdfasdf",
+      "pages": "888",
+      "id": 3
     }
   ],
   "profile": [
@@ -62,6 +68,5 @@
       "pesel": "123",
       "id": 18
     }
-
   ]
 }

@@ -1,4 +1,5 @@
 .body_div {
+    display: block;
     width: 65%;
     height: auto;
     margin-left: auto;
