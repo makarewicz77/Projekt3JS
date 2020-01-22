@@ -3,6 +3,8 @@ import {Injectable} from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
+import { ErrorStateMatcher } from '@angular/material';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,7 @@ export class Book implements Deserializable {
   title: string;
   author: string;
   pages: number;
-
+  type: string;
   deserialize(input: any): this {
     return Object.assign(this, input);
   }
@@ -55,6 +57,7 @@ export class Author implements Deserializable {
   templateUrl: './author.component.html',
   styleUrls: ['./author.component.css']
 })
+
 export class AuthorComponent {
   authorId: number;
   author: Author;
@@ -64,4 +67,5 @@ export class AuthorComponent {
   {
     this.authorService.getAuthor(this.authorId).subscribe(author => this.author = author);
   }
+  
 }
