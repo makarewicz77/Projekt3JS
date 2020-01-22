@@ -8,13 +8,20 @@
 
 <body>
 
-    <div class="body_div">
-        <div class="table_div">
-            <p>author works!</p>
-
-            <!-- Tu wstaw tabelke z buttonem Maciuś -->
-
+    <div style="width: 400px; margin: auto;">
+        <h2>Angular 7 model showcase</h2>
+        <input type="number" [(ngModel)]="authorId" placeholder="User ID">
+        <button type="button" (click)="getAuthor()">Get user</button>
+      
+        <div *ngIf="author">
+          User is called {{author.name}}. He has the following books
+          <ul>
+            <li *ngFor="let book of author.books">
+              {{car.id}} {{car.title}} pages {{car.pages}}
+            </li>
+          </ul>
         </div>
+      
     </div>
 
 </body>
